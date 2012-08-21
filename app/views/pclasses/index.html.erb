@@ -1,0 +1,25 @@
+<h1>Listing pclasses</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pclasses.each do |pclass| %>
+  <tr>
+    <td><%= pclass.number %></td>
+    <td><%= pclass.name %></td>
+    <td><%= link_to 'Show', pclass %></td>
+    <td><%= link_to 'Edit', edit_pclass_path(pclass) %></td>
+    <td><%= link_to 'Destroy', pclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pclass', new_pclass_path %>

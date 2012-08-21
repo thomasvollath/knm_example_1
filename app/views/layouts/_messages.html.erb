@@ -1,0 +1,24 @@
+<% flash.each do |name, msg| %>
+  <% case name %>
+    <% when :success %>
+      <hr>
+      <h3 class="alert alert-success">
+        <%= content_tag :div, msg, :id => 'flash_#{name}' if msg.is_a?(String) %>
+      </h3>
+    <% when :error %>
+      <hr>
+      <h3 class="alert alert-error">
+        <%= content_tag :div, msg, :id => 'flash_#{name}' if msg.is_a?(String) %>
+      </h3>
+    <% when :alert %>
+      <hr>
+      <h3 class="alert alert-alert">
+        <%= content_tag :div, msg, :id => 'flash_#{name}' if msg.is_a?(String) %>
+      </h3>
+    <% else %>
+      <hr>
+      <h3 class="alert alert-info">
+        <%= content_tag :div, msg, :id => 'flash_#{name}' if msg.is_a?(String) %>
+      </h3>
+  <% end %>
+<% end %>
