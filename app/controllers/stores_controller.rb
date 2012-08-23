@@ -1,10 +1,16 @@
 class StoresController < ApplicationController
   def index
-    @stores = Store.all
+    @stores = Store.find(:all, :order => :number)
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @stores }
+      format.json { render json: @stores }
+      # format.pdf { render pdf: @stores }
+    end
   end
 
   def show
-    @store = Store.find(params[:id])
+    @store = Store.find_by_id(params[:id])
   end
 
   def new
@@ -12,7 +18,7 @@ class StoresController < ApplicationController
   end
 
   def edit
-    @store = Store.find(params[:id])
+    @store = Store.find_by_id(params[:id])
   end
 
   def create

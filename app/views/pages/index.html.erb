@@ -1,2 +1,31 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<h1>Hello World!</h1>
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Pvendor</th>
+    <th>Pclass</th>
+    <th>Quantity</th>
+    <th>Cost</th>
+    <th></th>
+    <!-- <th></th> -->
+    <!-- <th></th> -->
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.number %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.pvendor_id %></td>
+    <td><%= product.pclass_id %></td>
+    <td><%= product.quantity %></td>
+    <td><%= product.cost %></td>
+    <td><%= button_to 'Add to Cart', addtocart_path(product.id) %></td>
+    <!-- <td>< %= link_to 'Show', product %></td> -->
+    <!-- <td>< %= link_to 'Edit', edit_product_path(product) %></td> -->
+    <!-- <td>< %= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+  </tr>
+<% end %>
+</table>

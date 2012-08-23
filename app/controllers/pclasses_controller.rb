@@ -10,6 +10,7 @@ class PclassesController < ApplicationController
 
   def show
     @pclass = Pclass.find(params[:id])
+    @products = Product.by_pclass(params[:id]).by_pvendor(1).limit(10)
   end
 
   def new

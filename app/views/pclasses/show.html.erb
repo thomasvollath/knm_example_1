@@ -8,6 +8,11 @@
   <%= @pclass.name %>
 </p>
 
+<ul>
+  <% @products.each do |p| %>
+    <li><%= p.number %> | <%= p.name %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_pclass_path(@pclass) %> |
 <%= link_to 'Back', pclasses_path %>
